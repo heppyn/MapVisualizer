@@ -1,0 +1,65 @@
+# frozen_string_literal: true
+
+require_relative '../lib/map-visualizer/loader'
+
+# test Loader class
+describe Loader do
+  info_data = {
+    "tree": '0',
+    "hum": '2',
+    "tem": '4',
+    "height": '23'
+  }
+
+  chunk_data = {
+    "pos": [0, 0],
+    "meta": [info_data, info_data, info_data, info_data]
+  }
+
+  describe 'when parsing block info' do
+    bi_expected = BlockInfo.new(false, 2, 4, 23)
+
+    it 'returns BlockInfo from string representation' do
+      bi = Loader.parse_info(info_data)
+
+      expect(bi.tree).to eq bi_expected.tree
+      expect(bi.humidity).to eq bi_expected.humidity
+      expect(bi.temperature).to eq bi_expected.temperature
+      expect(bi.height).to eq bi_expected.height
+    end
+
+    it 'returns BlockInfo from numeric representation' do
+      bi = Loader.parse_info({
+                               "tree": 0,
+                               "hum": 2,
+                               "tem": 4,
+                               "height": 23
+                             })
+      expect(bi.tree).to eq bi_expected.tree
+      expect(bi.humidity).to eq bi_expected.humidity
+      expect(bi.temperature).to eq bi_expected.temperature
+      expect(bi.height).to eq bi_expected.height
+    end
+  end
+
+  describe 'when parsing chunk' do
+    it 'returns Chunk' do
+      chunk = Loader.parse_chunk(chunk_data)
+
+      expect(chunk.size).to eq 2
+      expect(chunk.position).to eq [0, 0]
+      expect(chunk[3].height).to eq 23
+    end
+  end
+
+  describe 'when parsing scene' do
+    it 'returns list of Chunks' do
+      scene = Loader.parse_scene('spec/test_data/scene1.json')
+
+      expect(scene.size).to eq 2
+      scene.each do |chunk|
+        expect(chunk.size).to eq 2
+      end
+    end
+  end
+end
