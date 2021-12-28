@@ -44,6 +44,7 @@ class Loader
       info[:tree].to_i != 0,
       info[:hum].to_i,
       info[:tem].to_i,
+      info[:biome].to_i,
       info[:height].to_i
     )
   end

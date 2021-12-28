@@ -8,6 +8,7 @@ describe Loader do
     "tree": '0',
     "hum": '2',
     "tem": '4',
+    "biome": '2',
     "height": '23'
   }
 
@@ -17,7 +18,7 @@ describe Loader do
   }
 
   describe 'when parsing block info' do
-    bi_expected = BlockInfo.new(false, 2, 4, 23)
+    bi_expected = BlockInfo.new(false, 2, 4, 2, 23)
 
     it 'returns BlockInfo from string representation' do
       bi = Loader.parse_info(info_data)
@@ -33,11 +34,13 @@ describe Loader do
                                "tree": 0,
                                "hum": 2,
                                "tem": 4,
+                               "biome": 2,
                                "height": 23
                              })
       expect(bi.tree).to eq bi_expected.tree
       expect(bi.humidity).to eq bi_expected.humidity
       expect(bi.temperature).to eq bi_expected.temperature
+      expect(bi.biome).to eq bi_expected.biome
       expect(bi.height).to eq bi_expected.height
     end
   end

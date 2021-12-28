@@ -5,21 +5,25 @@
 			"tree": 0,
 			"hum": 2,
 			"tem": 4,
+			"biome": 2,
 			"height": 23
 		}, {
 			"tree": 0,
 			"hum": 2,
 			"tem": 4,
+			"biome": 2,
 			"height": 20
 		}, {
 			"tree": 0,
 			"hum": 2,
 			"tem": 4,
+			"biome": 2,
 			"height": 20
 		}, {
 			"tree": 0,
 			"hum": 2,
 			"tem": 4,
+			"biome": 2,
 			"height": 20
 		}],
         "objects": [
@@ -34,21 +38,25 @@
             "tree": 0,
             "hum": 2,
             "tem": 4,
+			"biome": 2,
             "height": 19
         }, {
             "tree": 0,
             "hum": 2,
             "tem": 5,
+			"biome": 2,
             "height": 15
         }, {
             "tree": 0,
             "hum": 2,
             "tem": 5,
+			"biome": 2,
             "height": 15
         }, {
             "tree": 0,
             "hum": 2,
             "tem": 5,
+			"biome": 2,
             "height": 15
         }],
         "objects": [
