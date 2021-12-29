@@ -18,6 +18,12 @@ class Vec
     0
   end
 
+  alias eql? ==
+
+  def hash
+    @data.hash
+  end
+
   def +(other)
     if other.is_a? Vec
       new_data = []
