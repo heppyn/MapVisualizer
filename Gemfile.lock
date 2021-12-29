@@ -1,6 +1,8 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    chunky_png (1.4.0)
+    color (1.8)
     diff-lcs (1.4.4)
     rspec (3.10.0)
       rspec-core (~> 3.10.0)
@@ -20,6 +22,8 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  chunky_png
+  color (~> 1.8)
   rspec
 
 BUNDLED WITH
