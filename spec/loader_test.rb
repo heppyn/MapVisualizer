@@ -50,7 +50,7 @@ describe Loader do
       chunk = Loader.parse_chunk(chunk_data)
 
       expect(chunk.size).to eq 2
-      expect(chunk.position).to eq [0, 0]
+      expect(chunk.position).to eq Vec.new(0, 0)
       expect(chunk[3].height).to eq 23
     end
   end
