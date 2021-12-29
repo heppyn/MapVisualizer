@@ -26,7 +26,7 @@ class Chunk
       check_bounds(args[0])
       @block_infos[args[0]]
     when 2
-      self[args[0] * size + args[1]]
+      self[args[1] * size + args[0]]
     else
       raise ArgumentError, "Wrong number of arguments #{args.count}"
     end
