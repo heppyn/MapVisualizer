@@ -41,8 +41,8 @@ class Scene
   # @param [int] y coord
   # @return [BlockInfo] block at location
   def [](x, y)
-    mod_x = Math.abs(x) % @chunk_size
-    mod_y = Math.abs(y) % @chunk_size
+    mod_x = x.abs % @chunk_size
+    mod_y = y.abs % @chunk_size
     pos = Vec.new(x - mod_x, y - mod_y)
 
     @chunks[pos][mod_x, mod_y]
