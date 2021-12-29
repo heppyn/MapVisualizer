@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Represents comparable vector with x, y, z, w coordinates
+# Represents lexicographically comparable vector with x, y, z, w components
 class Vec
   include Comparable
   def initialize(*params)
@@ -16,6 +16,19 @@ class Vec
     end
 
     0
+  end
+
+  def +(other)
+    if other.is_a? Vec
+      new_data = []
+      (0..3).each do |i|
+        new_data << @data[i] + other.instance_variable_get(:@data)[i]
+      end
+
+      return Vec.new(*new_data)
+    end
+
+    raise ArgumentError, 'other must be Vec'
   end
 
   def x
