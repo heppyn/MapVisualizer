@@ -32,4 +32,16 @@ describe Vec do
       expect(vec).to eq Vec.new(1, 2, 3, 4)
     end
   end
+
+  describe 'when adding two vectors' do
+    it 'returns new vector' do
+      expect(Vec.new(1) + Vec.new(1, 2)).to eq Vec.new(2, 2)
+    end
+
+    it 'can self assign' do
+      vec = Vec.new(2)
+      vec += Vec.new(3, 2)
+      expect(vec).to eq Vec.new(5, 2)
+    end
+  end
 end
