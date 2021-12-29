@@ -15,7 +15,8 @@ class Visualizer
 
     (0..@scene.width - 1).each do |x|
       (0..@scene.height - 1).each do |y|
-        @image[x, y] = @scene[x, y].tree ? ChunkyPNG::Color(Color::RGB::Red.hex) : ChunkyPNG::Color(Color::RGB::Snow.hex)
+        @image[x, y] =
+          @scene[x, y].tree ? ChunkyPNG::Color(Color::RGB::Red.hex) : ChunkyPNG::Color(Color::RGB::Snow.hex)
       end
     end
 

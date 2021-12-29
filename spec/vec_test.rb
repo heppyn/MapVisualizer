@@ -31,6 +31,16 @@ describe Vec do
       expect(vec).to be < Vec.new(1, 2, 3, 5)
       expect(vec).to eq Vec.new(1, 2, 3, 4)
     end
+
+    it 'has same eql?' do
+      expect(Vec.new(1, 2, 3, 4)).to eql Vec.new(1, 2, 3, 4)
+      expect(Vec.new(-16, -16)).to eql Vec.new(-16, -16)
+    end
+
+    it 'has the same hash' do
+      expect(Vec.new(1, 2, 3, 4).hash).to eq Vec.new(1, 2, 3, 4).hash
+      expect(Vec.new(-16, -16).hash).to eq Vec.new(-16, -16).hash
+    end
   end
 
   describe 'when adding two vectors' do

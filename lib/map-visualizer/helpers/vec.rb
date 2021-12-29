@@ -24,6 +24,10 @@ class Vec
     @data.hash
   end
 
+  def to_s
+    @data.to_s
+  end
+
   def +(other)
     if other.is_a? Vec
       new_data = []
