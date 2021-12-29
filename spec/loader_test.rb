@@ -56,10 +56,10 @@ describe Loader do
   end
 
   describe 'when parsing scene' do
-    it 'returns list of Chunks' do
+    it 'returns Scene object' do
       scene = Loader.parse_scene('spec/test_data/scene1.json')
 
-      expect(scene.size).to eq 2
+      expect(scene.chunks.size).to eq 2
       scene.each do |chunk|
         expect(chunk.size).to eq 2
       end

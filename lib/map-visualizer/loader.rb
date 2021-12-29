@@ -1,13 +1,14 @@
 # frozen_string_literal: true
 
 require 'json'
-require_relative './chunk'
+require_relative './scene'
 
 # Loads scene from JSON
 class Loader
   # Load and return scene from file in JSON format
   #
   # @param [String] path to the file
+  # @return [Scene] loaded scene
   def self.parse_scene(scene_path)
     scene_data = JSON.load_file(scene_path, { symbolize_names: true })
     scene = []
@@ -16,14 +17,14 @@ class Loader
       scene.push(parse_chunk(chunk_data))
     end
 
-    scene
+    Scene.new(scene)
   end
 
   # return Chunk from hash
   #
   # @param [Hash] data with symbols as keys
   def self.parse_chunk(chunk_data)
-    size = Math.sqrt(chunk_data[:meta].size)
+    size = Math.sqrt(chunk_data[:meta].size).to_i
     pos = [chunk_data[:pos][0].to_i, chunk_data[:pos][1].to_i]
     chunk = Chunk.new(pos, size)
 
