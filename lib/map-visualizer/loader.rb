@@ -23,6 +23,7 @@ class Loader
   # return Chunk from hash
   #
   # @param [Hash] data with symbols as keys
+  # @return [Chunk]
   def self.parse_chunk(chunk_data)
     size = Math.sqrt(chunk_data[:meta].size).to_i
     pos = [chunk_data[:pos][0].to_i, chunk_data[:pos][1].to_i]
@@ -40,6 +41,7 @@ class Loader
   # return BlockInfo from hash
   #
   # @param [Hash] data with symbols as keys
+  # @return [BlockInfo]
   def self.parse_info(info)
     BlockInfo.new(
       info[:tree].to_i != 0,

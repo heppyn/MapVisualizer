@@ -19,11 +19,17 @@ class Chunk
 
   # return BlockInfo at position specified by index
   #
-  # @param [int] position
-  def [](index)
-    check_bounds(index)
-
-    @block_infos[index]
+  # @param [int, [int, int]] position
+  def [](*args)
+    case args.count
+    when 1
+      check_bounds(args[0])
+      @block_infos[args[0]]
+    when 2
+      self[args[0] * size + args[1]]
+    else
+      raise ArgumentError, "Wrong number of arguments #{args.count}"
+    end
   end
 
   # access BlockInfo at position specified by index

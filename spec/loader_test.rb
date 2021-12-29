@@ -4,24 +4,31 @@ require_relative '../lib/map-visualizer/loader'
 
 # test Loader class
 describe Loader do
-  info_data = {
+  info_data1 = {
     "tree": '0',
     "hum": '2',
     "tem": '4',
     "biome": '2',
     "height": '23'
   }
+  info_data2 = {
+    "tree": '1',
+    "hum": '3',
+    "tem": '5',
+    "biome": '3',
+    "height": '24'
+  }
 
   chunk_data = {
     "pos": [0, 0],
-    "meta": [info_data, info_data, info_data, info_data]
+    "meta": [info_data2, info_data1, info_data1, info_data1]
   }
 
   describe 'when parsing block info' do
     bi_expected = BlockInfo.new(false, 2, 4, 2, 23)
 
     it 'returns BlockInfo from string representation' do
-      bi = Loader.parse_info(info_data)
+      bi = Loader.parse_info(info_data1)
 
       expect(bi.tree).to eq bi_expected.tree
       expect(bi.humidity).to eq bi_expected.humidity
@@ -52,6 +59,7 @@ describe Loader do
       expect(chunk.size).to eq 2
       expect(chunk.position).to eq Vec.new(0, 0)
       expect(chunk[3].height).to eq 23
+      expect(chunk[0, 0].height).to eq 24
     end
   end
 
