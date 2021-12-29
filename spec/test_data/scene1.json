@@ -2,7 +2,7 @@
 	"chunks": [{
 		"pos": [0, 0],
 		"meta": [{
-			"tree": 0,
+			"tree": 1,
 			"hum": 2,
 			"tem": 4,
 			"biome": 2,
@@ -53,7 +53,7 @@
 			"biome": 2,
             "height": 15
         }, {
-            "tree": 0,
+            "tree": 1,
             "hum": 2,
             "tem": 5,
 			"biome": 2,
