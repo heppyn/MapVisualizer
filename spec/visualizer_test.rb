@@ -6,10 +6,14 @@ require_relative '../lib/map-visualizer/visualizer'
 # test Visualizer class
 describe Visualizer do
   describe 'when running visualizer' do
+    scene = Loader.parse_scene('spec/test_data/export.json')
+    visualizer = Visualizer.new(scene)
+
     it 'generates map with trees' do
-      scene = Loader.parse_scene('spec/test_data/scene1.json')
-      vis = Visualizer.new(scene)
-      vis.trees('trees.png')
+      visualizer.trees('./maps/trees.png')
+    end
+    it 'generates map with biomes' do
+      visualizer.biomes('./maps/biomes.png')
     end
   end
 end

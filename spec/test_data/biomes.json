@@ -1,0 +1,109 @@
+{
+	"chunks": [{
+		"pos": [0, 0],
+		"meta": [{
+			"tree": 1,
+			"hum": 2,
+			"tem": 4,
+			"biome": 0,
+			"height": 23
+		}, {
+			"tree": 0,
+			"hum": 2,
+			"tem": 4,
+			"biome": 1,
+			"height": 20
+		}, {
+			"tree": 0,
+			"hum": 2,
+			"tem": 4,
+			"biome": 2,
+			"height": 20
+		}, {
+			"tree": 0,
+			"hum": 2,
+			"tem": 4,
+			"biome": 3,
+			"height": 20
+		}, {
+			"tree": 0,
+			"hum": 2,
+			"tem": 4,
+			"biome": 4,
+			"height": 20
+		}, {
+			"tree": 0,
+			"hum": 2,
+			"tem": 4,
+			"biome": 5,
+			"height": 20
+		}, {
+			"tree": 0,
+			"hum": 2,
+			"tem": 4,
+			"biome": 6,
+			"height": 20
+		}, {
+			"tree": 0,
+			"hum": 2,
+			"tem": 4,
+			"biome": 7,
+			"height": 20
+		}, {
+			"tree": 0,
+			"hum": 2,
+			"tem": 4,
+			"biome": 8,
+			"height": 20
+		}, {
+			"tree": 0,
+			"hum": 2,
+			"tem": 4,
+			"biome": 9,
+			"height": 20
+		}, {
+			"tree": 0,
+			"hum": 2,
+			"tem": 4,
+			"biome": 10,
+			"height": 20
+		}, {
+			"tree": 0,
+			"hum": 2,
+			"tem": 4,
+			"biome": 11,
+			"height": 20
+		}, {
+			"tree": 0,
+			"hum": 2,
+			"tem": 4,
+			"biome": 12,
+			"height": 20
+		}, {
+			"tree": 0,
+			"hum": 2,
+			"tem": 4,
+			"biome": 0,
+			"height": 20
+		}, {
+			"tree": 0,
+			"hum": 2,
+			"tem": 4,
+			"biome": 1,
+			"height": 20
+		}, {
+			"tree": 0,
+			"hum": 2,
+			"tem": 4,
+			"biome": 2,
+			"height": 20
+		}],
+        "objects": [
+			[-86, 24, -90, 1, 6, 2],
+			[-86, 25, -90, 1, 6, 2],
+			[-86, 26, -90, 1, 6, 2],
+			[-86, 27, -90, 1, 6, 2]
+        ]
+        }
+    ]
+}
