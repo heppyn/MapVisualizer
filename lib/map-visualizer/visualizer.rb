@@ -3,6 +3,7 @@
 require 'color'
 require_relative 'scene'
 require_relative 'biome'
+require_relative 'temperature'
 require_relative 'helpers/image'
 
 # visualize scene as a 2D map
@@ -39,6 +40,16 @@ class Visualizer
       @image[x, y] = ChunkyPNG::Color.rgb(
         0, 0, @scene[x, y].humidity.zero? ? 255 : 170 - 15 * @scene[x, y].humidity
       )
+    end
+
+    save_image(file_name)
+  end
+
+  def temperature(file_name)
+    create_image
+
+    execute_on_pixel do |x, y|
+      @image[x, y] = Temperature.temperature_color(@scene[x, y].temperature)
     end
 
     save_image(file_name)

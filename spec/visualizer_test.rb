@@ -15,8 +15,11 @@ describe Visualizer do
     # it 'generates map with biomes' do
     #   visualizer.biomes('./maps/biomes.png')
     # end
-    it 'generates map with humidity' do
-      visualizer.humidity('./maps/humidity.png')
+    # it 'generates map with humidity' do
+    #   visualizer.humidity('./maps/humidity.png')
+    # end
+    it 'generates map with temperature' do
+      visualizer.temperature('./maps/temperature.png')
     end
   end
 end
