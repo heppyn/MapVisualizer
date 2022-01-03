@@ -15,10 +15,8 @@ class Visualizer
     create_image
     create_background(200)
 
-    (0..@scene.width - 1).each do |x|
-      (0..@scene.height - 1).each do |y|
-        @image[x, y] = ChunkyPNG::Color(Color::RGB::Red.hex) if @scene[x, y].tree
-      end
+    execute_on_pixel do |x, y|
+      @image[x, y] = ChunkyPNG::Color(Color::RGB::Red.hex) if @scene[x, y].tree
     end
 
     save_image(file_name)
@@ -27,10 +25,8 @@ class Visualizer
   def biomes(file_name)
     create_image
 
-    (0..@scene.width - 1).each do |x|
-      (0..@scene.height - 1).each do |y|
-        @image[x, y] = Biome.biome_color(@scene[x, y].biome)
-      end
+    execute_on_pixel do |x, y|
+      @image[x, y] = Biome.biome_color(@scene[x, y].biome)
     end
 
     save_image(file_name)
@@ -39,26 +35,29 @@ class Visualizer
   def humidity(file_name)
     create_image
 
-    (0..@scene.width - 1).each do |x|
-      (0..@scene.height - 1).each do |y|
-        @image[x, y] = ChunkyPNG::Color.rgb(
-          0, 0,
-          @scene[x, y].humidity.zero? ? 255 : 170 - 15 * @scene[x, y].humidity
-        )
-      end
+    execute_on_pixel do |x, y|
+      @image[x, y] = ChunkyPNG::Color.rgb(
+        0, 0, @scene[x, y].humidity.zero? ? 255 : 170 - 15 * @scene[x, y].humidity
+      )
     end
 
     save_image(file_name)
   end
 
   def create_background(alpha)
+    execute_on_pixel do |x, y|
+      @image[x, y] = ChunkyPNG::Color.grayscale_alpha(
+        ChunkyPNG::Color.grayscale_teint(
+          Biome.biome_color(@scene[x, y].biome)
+        ), alpha
+      )
+    end
+  end
+
+  def execute_on_pixel(&block)
     (0..@scene.width - 1).each do |x|
       (0..@scene.height - 1).each do |y|
-        @image[x, y] = ChunkyPNG::Color.grayscale_alpha(
-          ChunkyPNG::Color.grayscale_teint(
-            Biome.biome_color(@scene[x, y].biome)
-          ), alpha
-        )
+        block.call(x, y)
       end
     end
   end
