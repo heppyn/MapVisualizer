@@ -36,6 +36,21 @@ class Visualizer
     save_image(file_name)
   end
 
+  def humidity(file_name)
+    create_image
+
+    (0..@scene.width - 1).each do |x|
+      (0..@scene.height - 1).each do |y|
+        @image[x, y] = ChunkyPNG::Color.rgb(
+          0, 0,
+          @scene[x, y].humidity.zero? ? 255 : 170 - 15 * @scene[x, y].humidity
+        )
+      end
+    end
+
+    save_image(file_name)
+  end
+
   def create_background(alpha)
     (0..@scene.width - 1).each do |x|
       (0..@scene.height - 1).each do |y|
