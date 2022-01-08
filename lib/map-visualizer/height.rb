@@ -14,9 +14,18 @@ class Height
     '#ffffff'
   ].freeze
 
+  # Creates new Height object
+  #
+  # @param [int, Array] minimal height value, or pair of min, max
+  # @param [int] maximal height value
   def initialize(min = 0, max = 0)
-    @min = min
-    @max = max
+    if min.is_a? Array
+      @min = min[0]
+      @max = min[1]
+    else
+      @min = min
+      @max = max
+    end
   end
 
   # Lineary interpolate between set color points
