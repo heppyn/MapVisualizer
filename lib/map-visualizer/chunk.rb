@@ -45,6 +45,13 @@ class Chunk
     raise IndexError, "Index #{index} out ouf bounds [0, #{@size * @size})" if index.negative? || index >= @size * @size
   end
 
+  # Iterates over all blocks
+  def each(&block)
+    return enum_for(:each) unless block_given?
+
+    @block_infos.each(&block)
+  end
+
   def add_pos(pos)
     case pos
     when Vec

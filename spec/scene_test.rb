@@ -16,5 +16,14 @@ describe Scene do
     it 'has the correct size' do
       expect(scene.size).to eq Vec.new(4, 2)
     end
+    it 'can iterate over all blocks' do
+      i = 0
+      scene.each_block do |bi|
+        expect(bi.biome).to eq i
+        i += 1
+      end
+
+      expect(i).to eq 8
+    end
   end
 end

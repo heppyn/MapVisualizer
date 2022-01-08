@@ -36,6 +36,21 @@ class Scene
     @chunks.each_value(&block)
   end
 
+  # Iterates over all block in the scene
+  def each_block(&block)
+    unless block_given?
+      return Enumerator.new do |res|
+        each do |chunk|
+          chunk.each do |bi|
+            res << bi
+          end
+        end
+      end
+    end
+
+    each_block.each(&block)
+  end
+
   # Return BlockInfo at position on the scene
   #
   # @param [int] x coord
