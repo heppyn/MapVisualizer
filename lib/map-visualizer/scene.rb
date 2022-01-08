@@ -51,6 +51,10 @@ class Scene
     each_block.each(&block)
   end
 
+  def minmax(&block)
+    each_block.map(&block).minmax
+  end
+
   # Return BlockInfo at position on the scene
   #
   # @param [int] x coord
