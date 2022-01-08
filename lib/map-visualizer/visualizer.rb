@@ -4,6 +4,7 @@ require 'color'
 require_relative 'scene'
 require_relative 'biome'
 require_relative 'temperature'
+require_relative 'height'
 require_relative 'helpers/image'
 
 # visualize scene as a 2D map
@@ -50,6 +51,17 @@ class Visualizer
 
     execute_on_pixel do |x, y|
       @image[x, y] = Temperature.temperature_color(@scene[x, y].temperature)
+    end
+
+    save_image(file_name)
+  end
+
+  def height(file_name)
+    create_image
+    h = Height.new(5, 40)
+
+    execute_on_pixel do |x, y|
+      @image[x, y] = h.height_color(@scene[x, y].height)
     end
 
     save_image(file_name)
