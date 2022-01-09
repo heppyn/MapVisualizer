@@ -44,7 +44,8 @@ class MapVisualizer
         @params[:out] = file
       end
       opts.on('-g', '--generate MAP p1 p2',
-              'Specify map type <biomes, humidity, temperature, trees, height [min, max]>') do |map|
+              'Specify map type <biomes, humidity, temperature, trees, height [min, max]>. ' \
+              'Not specifying min, max will automatically deduce them from the data') do |map|
         @params[:map] = map
         # following height params
         if ARGV[0] && ARGV[1] && !ARGV[0].start_with?('-') && !ARGV[1].start_with?('-')
@@ -78,7 +79,7 @@ class MapVisualizer
       exit
     rescue ArgumentError => e
       puts "Wrong input arguments. #{e.message}"
-    rescue => e
+    rescue StandardError => e
       puts "Failed to parse file. #{e.message}"
     end
   end
