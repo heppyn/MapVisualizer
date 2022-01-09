@@ -47,7 +47,7 @@ class MapVisualizer
         @params[:in] = file
       end
       opts.on('-o', '--output FILE', 'Specify output file') do |file|
-        @params[:out] = file
+        @params[:out] = file.end_with?('.png') ? file : "#{file}.png"
       end
       opts.on('-g', '--generate MAP min max',
               'Specify map type <biomes, humidity, temperature, trees, height [min, max]>. ' \
