@@ -43,7 +43,7 @@ class MapVisualizer
       opts.on('-o', '--output FILE', 'Specify output file') do |file|
         @params[:out] = file
       end
-      opts.on('-g', '--generate MAP p1 p2',
+      opts.on('-g', '--generate MAP min max',
               'Specify map type <biomes, humidity, temperature, trees, height [min, max]>. ' \
               'Not specifying min, max will automatically deduce them from the data') do |map|
         @params[:map] = map
