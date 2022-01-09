@@ -13,6 +13,9 @@ class MapVisualizer
     }
   end
 
+  # Parse optinons and catch all the exceptions
+  #
+  # @param [Array] options to parse
   def parse(options)
     begin
       parse_options(options)
@@ -33,6 +36,9 @@ class MapVisualizer
     end
   end
 
+  # Parse optinons
+  #
+  # @param [Array] options to parse
   def parse_options(options)
     opt_parser = OptionParser.new do |opts|
       opts.banner = 'Map Visualizer'
@@ -65,9 +71,9 @@ class MapVisualizer
     end
 
     opt_parser.parse!(options)
-    ARGV
   end
 
+  # Run visualizer based on params supplied by script arguments
   def run
     select_map
     begin
@@ -84,6 +90,7 @@ class MapVisualizer
     end
   end
 
+  # Convert supported map types to associated methods
   def select_map
     case @params[:map]
     when 'trees'
@@ -106,6 +113,7 @@ class MapVisualizer
     end
   end
 
+  # Print help
   def help
     MapVisualizer.new.parse %w[--help]
   end

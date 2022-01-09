@@ -2,7 +2,7 @@
 
 require 'chunky_png'
 
-# Image with invert y axis
+# Image with inverted y axis
 class Image < ChunkyPNG::Image
   def [](x, y)
     super(x, height - 1 - y)

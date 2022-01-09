@@ -69,6 +69,9 @@ class Visualizer
     save_image(file_name)
   end
 
+  # Create background from biomes
+  #
+  # @param [Float] alpha of the background [0, 1]
   def create_background(alpha)
     execute_on_pixel do |x, y|
       @image[x, y] = ChunkyPNG::Color.grayscale_alpha(
@@ -79,6 +82,9 @@ class Visualizer
     end
   end
 
+  # Execute block on every block of the scene
+  #
+  # @param block to execute
   def execute_on_pixel(&block)
     (0..@scene.width - 1).each do |x|
       (0..@scene.height - 1).each do |y|

@@ -52,6 +52,9 @@ class Chunk
     @block_infos.each(&block)
   end
 
+  # Set position
+  #
+  # @param [Array, Vec] position
   def add_pos(pos)
     case pos
     when Vec

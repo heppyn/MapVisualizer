@@ -17,6 +17,10 @@ class Scene
     end
   end
 
+  # Calculate size of scene
+  #
+  # @param [Array]
+  # @return [Vec] width and height of the scene
   def calc_size(chunks)
     @bottom_left, top_right = chunks.map(&:position).minmax
 
