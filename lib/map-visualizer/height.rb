@@ -10,7 +10,7 @@ class Height
     '#2ab653',
     '#f2f172',
     '#c67148',
-    '#988aa4',
+    '#664f17',
     '#ffffff'
   ].freeze
 
