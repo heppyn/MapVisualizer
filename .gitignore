@@ -1,5 +1,3 @@
-maps/*
-spec/test_data/export.json
 spec/test_data/real_scene_medium.json
 spec/test_data/real_scene_very_large.json
 spec/test_data/real_scene_small.json
