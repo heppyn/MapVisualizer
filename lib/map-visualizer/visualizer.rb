@@ -56,9 +56,11 @@ class Visualizer
     save_image(file_name)
   end
 
-  def height(file_name)
+  def height(file_name, minmax = :default)
     create_image
-    h = Height.new(@scene.minmax(&:height))
+    h = Height.new(
+      minmax == :default ? @scene.minmax(&:height) : minmax
+    )
 
     execute_on_pixel do |x, y|
       @image[x, y] = h.height_color(@scene[x, y].height)

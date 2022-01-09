@@ -4,6 +4,7 @@ GEM
     chunky_png (1.4.0)
     color (1.8)
     diff-lcs (1.4.4)
+    optparse (0.1.0)
     rspec (3.10.0)
       rspec-core (~> 3.10.0)
       rspec-expectations (~> 3.10.0)
@@ -24,6 +25,7 @@ PLATFORMS
 DEPENDENCIES
   chunky_png
   color (~> 1.8)
+  optparse
   rspec
 
 BUNDLED WITH

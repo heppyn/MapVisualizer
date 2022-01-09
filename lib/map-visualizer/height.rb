@@ -33,6 +33,8 @@ class Height
     norm = (height - @min).to_f / (@max - @min) * (@@height_to_color.size - 1)
 
     k = norm - norm.floor
+    raise ArgumentError, "Maxim height value is #{@max}. Recieved #{height}" if @@height_to_color[norm.ceil].nil?
+
     low = ChunkyPNG::Color.from_hex(@@height_to_color[norm.floor])
     hi = ChunkyPNG::Color.from_hex(@@height_to_color[norm.ceil])
 
