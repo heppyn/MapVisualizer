@@ -20,12 +20,17 @@ class Biome
     Color::RGB::Yellow.hex, # SubtropicalDesert
     Color::RGB::DarkOliveGreen.hex, # TropicalForest
     Color::RGB::Orange.hex, # Savanna
-    Color::RGB::ForestGreen.hex # TropicalRainforest
+    Color::RGB::ForestGreen.hex, # TropicalRainforest
+    Color::RGB::DeepSkyBlue.hex # Water
   ].freeze
 
   def self.biome_color(biome)
     raise IndexError, "Color not defined for biome #{biome}" if biome >= @@biome_to_color.size
 
     ChunkyPNG::Color(@@biome_to_color[biome])
+  end
+
+  def self.water?(biome)
+    biome == 13
   end
 end

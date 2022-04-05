@@ -63,7 +63,11 @@ class Visualizer
     )
 
     execute_on_pixel do |x, y|
-      @image[x, y] = h.height_color(@scene[x, y].height)
+      @image[x, y] = if Biome.water?(@scene[x, y].biome)
+                       Biome.biome_color(@scene[x, y].biome)
+                     else
+                       h.height_color(@scene[x, y].height)
+                     end
     end
 
     save_image(file_name)
